@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
+    
+    <title>Document</title>
+
+    <style>
+        /* Custom Styles */
+        body {
+            font-family: Arial, sans-serif;
+            font-style: initial;
+            margin: 0;
+            padding: 0;
+            transition: background-color 0.3s, color 0.3s;
+            
+        }
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        /* Navbar */
+        .navbar {
+            
+            color: white;
+            padding: 15px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 5px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        
+
+        /* Header Section */
+
+
+       
+        .offcanvas {
+            background-color: #3d4144; /* Dark background for sidebar */
+            color: #ccc;
+            width: 250px; /* Set the width of the sidebar */
+            
+        }
+
+        .offcanvas-header {
+            border-bottom: 1px solid #fffcfc;
+            color: white;
+        }
+
+        .offcanvas-body {
+            padding: 0;
+           
+        }
+
+        .container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+        }
+
+        .toggle-switch {
+            position: relative;
+            display: inline-block;
+            width: 60px;
+            height: 34px;
+        }
+
+        .toggle-switch input {
+            display: none;
+        }
+
+        .slider {
+            position: absolute;
+            cursor: pointer;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: #ccc;
+            transition: 0.4s;
+            border-radius: 34px;
+        }
+
+        .slider:before {
+            position: absolute;
+            content: "";
+            height: 26px;
+            width: 26px;
+            left: 4px;
+            bottom: 4px;
+            background-color: white;
+            transition: 0.4s;
+            border-radius: 50%;
+        }
+
+        input:checked + .slider {
+            background-color: #007bff;
+        }
+
+        input:checked + .slider:before {
+            transform: translateX(26px);
+        }
+
+        /* Light Mode */
+    
+
+        
+            /* Add a glow effect to nav links */
+        .navbar-nav .nav-link {
+            color:#007bff; ;/* Default text color */
+            text-decoration: none;
+            font-weight: bold;
+            transition: color 0.3s ease, text-shadow 0.3s ease;
+            border-color: #007bff;
+        }
+        .content {
+                    margin-left: 250px;
+                    padding: 20px;
+                }
+
+        .card {
+            border: none;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+    
+
+
+
+    </style>
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar">
+        <div class="container-fluid">
+            <!-- Sidebar Toggle Button -->
+            <button class="btn btn-outline-primary" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasSidebar" aria-controls="offcanvasSidebar">
+                <i class="bi bi-gear"></i> More Option <!-- Hamburger menu icon -->
+            </button>
+            
+
+            <!-- Navbar Brand (Logo or Title) -->
+            <a class="navbar-brand" href="#"></a>
+
+            <!-- Navbar Links (You can add more links here) -->
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link glow-effect" href="#">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link glow-effect" href="#">About</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link glow-effect" href="#">Services</a>
+                    </li>
+                 
+                </ul>
+                
+            </div>
+        </div>
+    </nav>
+
+ 
+
+
+   <!-- Sidenav (offcanvas) -->
+<div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvasSidebar" aria-labelledby="offcanvasSidebarLabel">
+    <div class="offcanvas-header">
+        <h5 id="offcanvasSidebarLabel">Sidebar</h5>
+        <!-- Close Button with White Color -->
+        <button class="btn btn-outline-light" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasSidebar" aria-controls="offcanvasSidebar">
+            <i class="bi bi-x"></i> <!-- Close icon -->
+        </button>
+    </div>
+    <div class="offcanvas-body">
+        <ul class="nav flex-column">
+            <li class="nav-item">
+                <a class="nav-link active" href="#">
+                    <i class="bi bi-house-door"></i> Home
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#">
+                    <i class="bi bi-person"></i> Profile
+                </a>
+            </li>
+          
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#">
+                    <i class="bi bi-box"></i> Products
+                </a>
+            </li>
+           
+        </ul>
+    </div>
+</div>
+ 
+<!-- Main Content Area -->
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-12 p-3">
+            <div class="row">
+                <div class="col-12">
+                    <h3>Welcome to Employee Company Bank Dashboard</h3>
+                    <p class="text-muted">Track employee details, company finances, and transactions at a glance.</p>
+                </div>
+            </div>
+            <div class="row mt-4">
+                <!-- Sales Overview -->
+                <div class="row mt-3">
+                    <div class="col-md-4 mb-4">
+                        <div class="card p-3">
+                            <h5>Total Employees</h5>
+                            <h3>256</h3>
+                            <p class="text-success">+12 new this month</p>
+                        </div>
+                    </div>
+                    <div class="col-md-4 mb-4">
+                        <div class="card p-3">
+                            <h5>Total Accounts</h5>
+                            <h3>345</h3>
+                            <p class="text-success">+10 new this month</p>
+                        </div>
+                    </div>
+                    <div class="col-md-4 mb-4">
+                        <div class="card p-3">
+                            <h5>Total Balance</h5>
+                            <h3>$1,234,567</h3>
+                            <p class="text-danger">-2% from last month</p>
+                        </div>
+                    </div>
+                </div>
+                     <!-- Charts and Tables -->
+                <div class="row">
+                    <div class="col-md-8 mb-3">
+                        <div class="card p-3">
+                            <h5>Recent Transactions</h5>
+                            <div style="height: 300px; background-color: #f1f3f5;">Chart Placeholder</div>
+                        </div>
+                    </div>
+                    <div class="col-md-4 mb-4">
+                        <div class="card p-3">
+                            <h5>Top Accounts</h5>
+                            <ul class="list-group list-group-flush">
+                                <li class="list-group-item">Account A - $123,456</li>
+                                <li class="list-group-item">Account B - $98,765</li>
+                                <li class="list-group-item">Account C - $76,543</li>
+                                <li class="list-group-item">Account B - $98,765</li>
+                                <li class="list-group-item">Account C - $76,543</li>
+                                <li class="list-group-item">Account B - $98,765</li>
+                                <li class="list-group-item">Account C - $76,543</li>
+                                <li class="list-group-item">Account B - $98,765</li>
+                                
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Employee Stats -->
+                <div class="row">
+                    <div class="col-md-6 mb-4">
+                        <div class="card p-3">
+                            <h5>Employee of the Month</h5>
+                            <p>John Doe - $12,345 revenue contribution</p>
+                        </div>
+                    </div>
+                    <div class="col-md-6 mb-4">
+                        <div class="card p-3">
+                            <h5>Top Department</h5>
+                            <p>Finance - $345,678 revenue generated</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+            </div>
+        </div>
+    </div>
+</div>
+
+ 
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        // Get the switch input element
+        const modeSwitch = document.getElementById('modeSwitch');
+        const body = document.body;
+    
+        // Function to toggle between modes
+        function toggleMode() {
+            if (modeSwitch.checked) {
+                body.classList.remove('light-mode');
+                body.classList.add('dark-mode');
+            } else {
+                body.classList.remove('dark-mode');
+                body.classList.add('light-mode');
+            }
+        }
+    
+        // Attach event listener
+        modeSwitch.addEventListener('change', toggleMode);
+    </script>
+</body>
+</html>

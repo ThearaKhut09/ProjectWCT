@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product List</title>
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Bootstrap Icons -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
+</head>
+<body>
+<div class="container py-5">
+    <!-- Search Bar -->
+    <div class="row mb-3">
+        <div class="col-12">
+            <div class="input-group">
+                <input type="text" id="searchInput" class="form-control" placeholder="Search for products...">
+                <button class="btn btn-outline-secondary" type="button" onclick="searchProducts()">
+                    <i class="bi bi-search"></i> <!-- Bootstrap search icon -->
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Product Cards -->
+    <div class="row" id="productList">
+        <!-- Sample Product Card -->
+        <div class="col-md-3 pt-3 product-card">
+            <div class="card">
+                <img src="https://via.placeholder.com/300" class="card-img-top" alt="Product Image">
+                <div class="card-body">
+                    <h5 class="card-title">Product 1</h5>
+                    <p class="card-text">A short description of Product 1.</p>
+                    <ul class="product-info">
+                        <li><strong>Price:</strong> $199.99</li>
+                        <li><strong>Color:</strong> Red</li>
+                    </ul>
+                    <button class="btn btn-warning" onclick="addToBasket('Product 1', 199.99)">Add Order</button>
+                    <a href="#" class="btn btn-outline-secondary">View Details</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-3 pt-3 product-card">
+            <div class="card">
+                <img src="https://via.placeholder.com/300" class="card-img-top" alt="Product Image">
+                <div class="card-body">
+                    <h5 class="card-title">Product 2</h5>
+                    <p class="card-text">A short description of Product 2.</p>
+                    <ul class="product-info">
+                        <li><strong>Price:</strong> $299.99</li>
+                        <li><strong>Color:</strong> Blue</li>
+                    </ul>
+                    <button class="btn btn-warning" onclick="addToBasket('Product 2', 299.99)">Add Order</button>
+                    <a href="#" class="btn btn-outline-secondary">View Details</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-3 pt-3 product-card">
+            <div class="card">
+                <img src="https://via.placeholder.com/300" class="card-img-top" alt="Product Image">
+                <div class="card-body">
+                    <h5 class="card-title">Product 3</h5>
+                    <p class="card-text">A short description of Product 3.</p>
+                    <ul class="product-info">
+                        <li><strong>Price:</strong> $299.99</li>
+                        <li><strong>Color:</strong> Green</li>
+                    </ul>
+                    <button class="btn btn-warning" onclick="addToBasket('Product 3', 299.99)">Add Order</button>
+                    <a href="#" class="btn btn-outline-secondary">View Details</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Add more product cards here -->
+    </div>
+</div>
+
+<script>
+    // Function to filter products
+    document.getElementById('searchInput').addEventListener('input', function () {
+        const searchQuery = this.value.toLowerCase();
+        const productCards = document.querySelectorAll('.product-card');
+
+        productCards.forEach(card => {
+            const productName = card.querySelector('.card-title').innerText.toLowerCase();
+            if (productName.includes(searchQuery)) {
+                card.classList.remove('hidden');
+            } else {
+                card.classList.add('hidden');
+            }
+        });
+    });
+
+    // Dummy function for Add to Basket
+    function addToBasket(name, price) {
+        alert(`${name} has been added to your basket for $${price}`);
+    }
+
+    // Search function to handle clicking the search button
+    function searchProducts() {
+        const searchQuery = document.getElementById('searchInput').value.toLowerCase();
+        const productCards = document.querySelectorAll('.product-card');
+
+        productCards.forEach(card => {
+            const productName = card.querySelector('.card-title').innerText.toLowerCase();
+            if (productName.includes(searchQuery)) {
+                card.classList.remove('hidden');
+            } else {
+                card.classList.add('hidden');
+            }
+        });
+    }
+</script>
+</body>
+</html>
